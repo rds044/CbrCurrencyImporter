@@ -14,17 +14,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0C8F807E-C91
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CbrCurrencyImporter.Domain", "CbrCurrencyImporter.Domain", "{84DA4CCC-A51B-43F4-AD4C-1803F0CE621C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CbrCurrencyImporter.Domain", "src\CbrCurrencyImporter.Domain\CbrCurrencyImporter.Domain.csproj", "{3FE2F1E5-C5FC-45D7-BAD7-FB156B14925C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CbrCurrencyImporter.Domain", "src\CbrCurrencyImporter.Domain\CbrCurrencyImporter.Domain.csproj", "{3FE2F1E5-C5FC-45D7-BAD7-FB156B14925C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CbrCurrencyImporter.Infractucture", "CbrCurrencyImporter.Infractucture", "{698BA06E-4A6A-4CF8-A6C0-C74F56A774ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CbrCurrencyImporter.Infractucture", "src\CbrCurrencyImporter.Infractucture\CbrCurrencyImporter.Infractucture.csproj", "{FE63F6BD-C002-4808-B0A3-BB10BC20189D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CbrCurrencyImporter.Infractucture", "src\CbrCurrencyImporter.Infractucture\CbrCurrencyImporter.Infractucture.csproj", "{FE63F6BD-C002-4808-B0A3-BB10BC20189D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CbrCurrencyImporter.Api", "CbrCurrencyImporter.Api", "{D631B432-C2D8-47D2-815D-471D9E8D58F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CbrCurrencyImporter.Api", "src\CbrCurrencyImporter.Services\CbrCurrencyImporter.Api.csproj", "{532CF919-712E-4C08-BF1A-CD7F485DBB7E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CbrCurrencyImporter.Api", "src\CbrCurrencyImporter.Services\CbrCurrencyImporter.Api.csproj", "{532CF919-712E-4C08-BF1A-CD7F485DBB7E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CbrCurrencyImporter.Console", "CbrCurrencyImporter.Console", "{6564E756-7379-4DD8-8175-82E6D616E25E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CbrCurrencyImporter.DTO", "CbrCurrencyImporter.DTO", "{D4ABCF4D-5BE5-42ED-A06B-EA3801259F3D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CbrCurrencyImporter.DTO", "src\CbrCurrencyImporter.DTO\CbrCurrencyImporter.DTO.csproj", "{85DA771D-D585-4202-8A32-D0730D412E32}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CbrCurrencyImporter.Application", "CbrCurrencyImporter.Application", "{DD21BD69-11FA-4471-A32D-D7543D996345}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CbrCurrencyImporter.Application", "src\CbrCurrencyImporter.Application\CbrCurrencyImporter.Application.csproj", "{0C59ED81-6A57-476A-A288-1A52E4D4718E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -48,6 +56,14 @@ Global
 		{532CF919-712E-4C08-BF1A-CD7F485DBB7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{532CF919-712E-4C08-BF1A-CD7F485DBB7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{532CF919-712E-4C08-BF1A-CD7F485DBB7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85DA771D-D585-4202-8A32-D0730D412E32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85DA771D-D585-4202-8A32-D0730D412E32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85DA771D-D585-4202-8A32-D0730D412E32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85DA771D-D585-4202-8A32-D0730D412E32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C59ED81-6A57-476A-A288-1A52E4D4718E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C59ED81-6A57-476A-A288-1A52E4D4718E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C59ED81-6A57-476A-A288-1A52E4D4718E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C59ED81-6A57-476A-A288-1A52E4D4718E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -61,6 +77,10 @@ Global
 		{D631B432-C2D8-47D2-815D-471D9E8D58F6} = {0C8F807E-C91B-4675-BDED-24AAD6511644}
 		{532CF919-712E-4C08-BF1A-CD7F485DBB7E} = {D631B432-C2D8-47D2-815D-471D9E8D58F6}
 		{6564E756-7379-4DD8-8175-82E6D616E25E} = {0C8F807E-C91B-4675-BDED-24AAD6511644}
+		{D4ABCF4D-5BE5-42ED-A06B-EA3801259F3D} = {0C8F807E-C91B-4675-BDED-24AAD6511644}
+		{85DA771D-D585-4202-8A32-D0730D412E32} = {D4ABCF4D-5BE5-42ED-A06B-EA3801259F3D}
+		{DD21BD69-11FA-4471-A32D-D7543D996345} = {0C8F807E-C91B-4675-BDED-24AAD6511644}
+		{0C59ED81-6A57-476A-A288-1A52E4D4718E} = {DD21BD69-11FA-4471-A32D-D7543D996345}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {886F76BA-85C6-4C80-927A-C02FDD59AA54}
