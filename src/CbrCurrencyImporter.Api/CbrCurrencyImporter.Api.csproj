@@ -10,9 +10,14 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 	</PropertyGroup>
-	
+
 	<ItemGroup>
-	  <ProjectReference Include="..\CbrCurrencyImporter.DTO\CbrCurrencyImporter.DTO.csproj" />
+		<PackageReference Include="CommunityToolkit.Diagnostics" Version="8.4.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.3.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\CbrCurrencyImporter.Application\CbrCurrencyImporter.Application.csproj" />
 	</ItemGroup>
 
 </Project>
