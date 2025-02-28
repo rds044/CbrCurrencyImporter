@@ -1,4 +1,4 @@
-﻿using CbrCurrencyImporter.DTO;
+﻿using CbrCurrencyImporter.Dto;
 
 namespace CbrCurrencyImporter.Application
 {

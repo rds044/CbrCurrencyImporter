@@ -1,6 +1,8 @@
-﻿using CbrCurrencyImporter.Api.Middleware;
+﻿using Microsoft.AspNetCore.Builder;
+using CbrCurrencyImporter.Api.Middleware;
 using CbrCurrencyImporter.Application;
 using CbrCurrencyImporter.Application.Internal;
+using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 

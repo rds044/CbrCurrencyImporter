@@ -7,4 +7,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CbrCurrencyImporter.Application\CbrCurrencyImporter.Application.csproj" />
+    <ProjectReference Include="..\CbrCurrencyImporter.Domain\CbrCurrencyImporter.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

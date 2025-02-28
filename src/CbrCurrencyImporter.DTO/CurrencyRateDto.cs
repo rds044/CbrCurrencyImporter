@@ -1,4 +1,4 @@
-﻿namespace CbrCurrencyImporter.DTO
+﻿namespace CbrCurrencyImporter.Dto
 {
     /// <summary>
     /// DTO модель курсов валют, ЦБ всегда выводит все курсы валют, поэтому nullable не использую
