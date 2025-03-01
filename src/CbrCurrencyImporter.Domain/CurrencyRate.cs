@@ -56,20 +56,27 @@ namespace CbrCurrencyImporter.Domain
                 throw new ArgumentException("XML-узел содержит неполные данные.");
             }
 
-            // Создаем объект CurrencyRate
-            var rate = new CurrencyRate(
+            var nominal = int.Parse(nominalNode.InnerText);
+            var value = decimal.Parse(valueNode.InnerText, CultureInfo.InvariantCulture);
+            var vunitRate = decimal.Parse(vunitRateNode.InnerText, CultureInfo.InvariantCulture);
+
+            // Корректируем значение курса
+            var correctedValue = value / nominal;
+            var correctedVunitRate = vunitRate / nominal;
+
+            return new CurrencyRate(
                 id: idAttribute.Value,
                 numCode: short.Parse(numCodeNode.InnerText),
                 charCode: charCodeNode.InnerText,
-                nominal: int.Parse(nominalNode.InnerText),
+                nominal: nominal,
                 name: nameNode.InnerText,
-                value: decimal.Parse(valueNode.InnerText, CultureInfo.InvariantCulture),
-                vunitRate: decimal.Parse(vunitRateNode.InnerText, CultureInfo.InvariantCulture)
-            );
-
-            rate.Date = date;
-
-            return rate;
+                value: correctedValue,
+                vunitRate: correctedVunitRate
+            )
+            {
+                Date = date // Устанавливаем дату
+            };
         }
     }
-}
+    }
+

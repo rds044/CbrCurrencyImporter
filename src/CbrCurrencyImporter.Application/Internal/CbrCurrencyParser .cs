@@ -6,6 +6,7 @@ using System.Globalization;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Xml;
+using System.Text;
 
 namespace CbrCurrencyImporter.Application.Internal
 {
@@ -13,45 +14,38 @@ namespace CbrCurrencyImporter.Application.Internal
     {
         private readonly HttpClient _httpClient;
 
-        // Конструктор для инициализации HttpClient
         public CbrCurrencyParser(HttpClient httpClient)
         {
             _httpClient = httpClient;
         }
 
-        // Метод для парсинга курсов валют за указанную дату
         public async Task<List<CurrencyRateDto>> ParseCurrencyRatesAsync(DateTime date)
         {
-            // Формируем URL для запроса данных с сайта ЦБ РФ
             var url = $"https://www.cbr.ru/scripts/XML_daily.asp?date_req={date:dd/MM/yyyy}";
 
-            // Выполняем HTTP-запрос и получаем XML-ответ
-            var response = await _httpClient.GetStringAsync(url);
+            var response = await _httpClient.GetByteArrayAsync(url);
 
-            // Загружаем XML-документ
+            var encoding = Encoding.GetEncoding("windows-1251");
+            var responseString = encoding.GetString(response);
+
             var xmlDoc = new XmlDocument();
-            xmlDoc.LoadXml(response);
+            xmlDoc.LoadXml(responseString);
 
-            // Парсим атрибуты корневого элемента
             var dateAttribute = xmlDoc.DocumentElement?.Attributes?["Date"];
             var nameAttribute = xmlDoc.DocumentElement?.Attributes?["name"];
 
-            // Проверяем, что атрибуты существуют
             if (dateAttribute == null || nameAttribute == null)
             {
                 throw new ArgumentException("XML-документ содержит неполные данные.");
             }
 
-            // Парсим дату из атрибута
             var responseDate = DateTime.ParseExact(dateAttribute.Value, "dd.MM.yyyy", CultureInfo.InvariantCulture);
+            var responseName = nameAttribute.Value;
 
-            // Создаем список для хранения курсов валют
             var rates = new List<CurrencyRateDto>();
-
-            // Парсим каждый элемент <Valute> в XML
             foreach (XmlNode node in xmlDoc.SelectNodes("//Valute"))
             {
-                // Создаем объект CurrencyRate из XML-узла
+                // Парсим XML-узел и создаем объект CurrencyRate
                 var rate = CurrencyRate.FromXml(node, responseDate);
 
                 // Преобразуем CurrencyRate в CurrencyRateDto
@@ -62,12 +56,11 @@ namespace CbrCurrencyImporter.Application.Internal
                     CharCode = rate.CharCode,
                     Nominal = rate.Nominal,
                     Name = rate.Name,
-                    Value = rate.Value,
-                    VunitRate = rate.VunitRate
+                    Value = rate.Value, 
+                    VunitRate = rate.VunitRate 
                 });
             }
 
-            // Возвращаем список DTO
             return rates;
         }
     }

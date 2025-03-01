@@ -4,9 +4,14 @@
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ConnectionStrings__DefaultConnection": "Host=localhost;Database=CbrCurrencyImporter;Username=postgres;Password=123",
+        "POSTGRES_HOST": "localhost",
+        "POSTGRES_DB": "CbrCurrencyImporter",
+        "POSTGRES_USER": "postgres",
+        "POSTGRES_PASSWORD": "123"
       },
-      "applicationUrl": "https://localhost:64211;http://localhost:64212"
+      "applicationUrl": "https://localhost:5000;"
     }
   }
 }

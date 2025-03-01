@@ -16,14 +16,13 @@ namespace CbrCurrencyImporter.Infrastructure.Data
         {
             foreach (var rateDto in rates)
             {
-                // Проверяем, существует ли валюта в базе данных
                 var currency = await _context.Currencies.FindAsync(rateDto.Id);
                 if (currency == null)
                 {
                     currency = new Currency
                     {
                         Id = rateDto.Id,
-                        NumCode = rateDto.NumCode,
+                        NumCode = rateDto.NumCode.ToString(),
                         CharCode = rateDto.CharCode,
                         Nominal = rateDto.Nominal,
                         Name = rateDto.Name
@@ -31,7 +30,6 @@ namespace CbrCurrencyImporter.Infrastructure.Data
                     _context.Currencies.Add(currency);
                 }
 
-                // Создаем объект CurrencyRate с использованием конструктора
                 var currencyRate = new CurrencyRate(
                     id: rateDto.Id,
                     numCode: rateDto.NumCode,
@@ -42,7 +40,6 @@ namespace CbrCurrencyImporter.Infrastructure.Data
                     vunitRate: rateDto.VunitRate
                 );
 
-                // Добавляем курс валюты
                 _context.CurrencyRates.Add(currencyRate);
             }
 
